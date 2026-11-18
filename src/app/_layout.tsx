@@ -1,6 +1,39 @@
+
 import '../../global.css';
-import { Stack } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 
 export default function RootLayout() {
-  return <Stack screenOptions={{ title: 'TaskFlow' }} />;
+  return (
+    <Stack>
+      <Stack.Screen
+        name="index"
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="home"
+        options={{
+          title: 'Home',
+          headerRight: () => (
+            <Link
+              href="./profile"
+              className="p-2 font-bold text-brand"
+            >
+              Profile
+            </Link>
+          ),
+        }}
+      />
+
+      <Stack.Screen
+        name="item/[id]"
+        options={{ title: 'Details' }}
+      />
+
+      <Stack.Screen
+        name="profile"
+        options={{ title: 'Profile' }}
+      />
+    </Stack>
+  );
 }
