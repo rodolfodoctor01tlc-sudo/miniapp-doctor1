@@ -3,8 +3,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Button } from '@/components/button';
 import { ITEMS } from '@/data/items';
 export default function DetailsScreen() {
-const { id } = useLocalSearchParams<{ id: string }>(); // the id from the 
-link
+const { id } = useLocalSearchParams<{ id: string }>(); // the id from the link
 const router = useRouter();
 const item = ITEMS.find((i) => i.id === id); // find the item with that id
 if (!item) {
